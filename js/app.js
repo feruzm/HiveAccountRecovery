@@ -1,4 +1,4 @@
-const client = new dhive.Client('https://api.hive.blog');
+const client = new dhive.Client('https://rpc.ecency.com');
 
 // Generates Aall Private Keys from username and password
 function getPrivateKeys(username, password, roles = ['owner', 'active', 'posting', 'memo']) {
