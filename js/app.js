@@ -4,7 +4,7 @@ const client = new dhive.Client('https://api.hive.blog');
 function getPrivateKeys(username, password, roles = ['owner', 'active', 'posting', 'memo']) {
   const privKeys = {};
   roles.forEach((role) => {
-    privKeys[role] = dhive.PrivateKey.fromLogin(username, password, role).toString();
+    privKeys[role] = password.startsWith("5") ? dhive.PrivateKey.fromString(password) : dhive.PrivateKey.fromLogin(username, password, role).toString();
     privKeys[`${role}Pubkey`] = dhive.PrivateKey.from(privKeys[role]).createPublic().toString();
   });
 
